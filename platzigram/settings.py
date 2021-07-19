@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'storages',
+    'herokuapp',
 
     # Local apps
     'posts',
@@ -151,8 +152,8 @@ LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = LOGIN_URL
 
 # Configure Django App for Heroku.
-# import django_heroku
-# django_heroku.settings(locals())
+import django_heroku
+django_heroku.settings(locals())
 
 AWS_ACCESS_KEY_ID = "AKIAWIWBUSEFGB5ZBEEI"
 AWS_SECRET_ACCESS_KEY = "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"
