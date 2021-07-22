@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/2.0/ref/settings/
 
 import os
 import django_heroku
-# import environ
+import environ
 
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -20,7 +20,8 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 # print('BASE_DIR', BASE_DIR)
 # print('PROJECT_ROOT', PROJECT_ROOT)
-environ.Env.read_env(env_file=os.path.join(BASE_DIR, '.env'))
+# ENV = environ.Env()
+environ.Env.read_env(env_file=os.path.join(BASE_DIR, '.env.development'))
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.0/howto/deployment/checklist/
@@ -29,8 +30,8 @@ environ.Env.read_env(env_file=os.path.join(BASE_DIR, '.env'))
 SECRET_KEY = 'g%#mue@@9+%3+q!e7b0%eh9dg2=kbxs-#35(h5!em)fz&2!=2$'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG =( os.eviron.get('ENV', "development")=="development")
-
+DEBUG =( os.environ.get('ENV', "development")=="development")
+print("DEBUG", DEBUG)
 ALLOWED_HOSTS = ['pure-everglades-15556.herokuapp.com']
 
 
