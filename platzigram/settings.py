@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/2.0/ref/settings/
 """
 
 import os
-import django_heroku
+# import django_heroku
 import environ
 
 
@@ -32,7 +32,7 @@ SECRET_KEY = 'g%#mue@@9+%3+q!e7b0%eh9dg2=kbxs-#35(h5!em)fz&2!=2$'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG =( os.environ.get('ENV', "development")=="development")
 print("DEBUG", DEBUG)
-ALLOWED_HOSTS = ['pure-everglades-15556.herokuapp.com']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -160,17 +160,18 @@ LOGOUT_REDIRECT_URL = LOGIN_URL
 # Configure Django App for Heroku.
 # import django_heroku
 SITE_ID = 1
-_locals = locals()
+# _locals = locals()
 
-django_heroku.settings(_locals)
+# django_heroku.settings(_locals)
 
 AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
 
 
 AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
 
-AWS_STORAGE_BUCKET_NAME = os.environ.get('AWS_STORAGE_BUCKET_NAME')
-
+AWS_STORAGE_BUCKET_NAME = 'platzigramfiles'
+# AWS_STORAGE_BUCKET_NAME = os.environ.get('AWS_STORAGE_BUCKET_NAME')
+print("nombre del bucket", AWS_STORAGE_BUCKET_NAME)
 
 AWS_FILE_OVERWRITE = False
 AWS_DEFAULT_ACL = None
